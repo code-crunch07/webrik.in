@@ -82,7 +82,7 @@ export default buildConfig({
   },
   db: postgresAdapter({
     pool: {
-      connectionString: process.env.DATABASE_URI || 'postgresql://postgres:postgres@127.0.0.1:5432/webrik_db',
+      connectionString: process.env.DATABASE_URI || 'postgresql://postgres:postgres@postgres:5432/webrik_db',
     },
   }),
   sharp,
