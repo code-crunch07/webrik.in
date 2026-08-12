@@ -4,7 +4,8 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronDown, Menu, X, Code, Sparkles, ArrowRight, ShieldCheck } from 'lucide-react'
+import { ChevronDown, Menu, X, Code, Sparkles, ArrowRight, ShieldCheck, Sun, Moon } from 'lucide-react'
+import { useTheme } from '@/components/theme/ThemeProvider'
 
 interface HeaderProps {
   headerData?: any
@@ -12,6 +13,7 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ headerData, siteSettings }) => {
+  const { theme, toggleTheme } = useTheme()
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
@@ -86,12 +88,12 @@ export const Header: React.FC<HeaderProps> = ({ headerData, siteSettings }) => {
           : 'bg-transparent py-5'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-4 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between">
           {/* Brand Logo */}
           <Link href="/" className="flex items-center group">
-            <div className="bg-white/95 px-3 py-1.5 rounded-xl border border-white/20 shadow-glow-sm group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
-              <img src={frontendLogoUrl} alt="Webrik — Innovating Ideas" className="h-8 sm:h-9 object-contain" />
+            <div className="flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+              <img src={frontendLogoUrl} alt="Webrik — Innovating Ideas" className="h-10 sm:h-12 w-auto object-contain" />
             </div>
           </Link>
 
@@ -242,7 +244,16 @@ export const Header: React.FC<HeaderProps> = ({ headerData, siteSettings }) => {
           </nav>
 
           {/* Desktop Right CTA */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-3">
+            <button
+              onClick={toggleTheme}
+              className="p-2.5 rounded-xl bg-white/5 border border-surface-border text-slate-300 hover:text-white hover:border-brand-violet/50 transition-all flex items-center justify-center"
+              title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+              aria-label="Toggle theme mode"
+            >
+              {theme === 'dark' ? <Sun className="w-5 h-5 text-amber-400" /> : <Moon className="w-5 h-5 text-brand-violet" />}
+            </button>
+
             <Link
               href="/contact"
               className="relative inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white rounded-xl bg-gradient-to-r from-brand-primary to-brand-violet hover:from-brand-primaryHover hover:to-brand-purple shadow-glow-sm hover:shadow-glow-md transition-all duration-300 group overflow-hidden"
@@ -254,8 +265,15 @@ export const Header: React.FC<HeaderProps> = ({ headerData, siteSettings }) => {
             </Link>
           </div>
 
-          {/* Mobile Hamburger Button */}
-          <div className="flex lg:hidden items-center">
+          {/* Mobile Hamburger & Theme Toggle Button */}
+          <div className="flex lg:hidden items-center space-x-2">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-xl bg-white/5 border border-surface-border text-slate-300 hover:text-white"
+              title="Toggle theme"
+            >
+              {theme === 'dark' ? <Sun className="w-5 h-5 text-amber-400" /> : <Moon className="w-5 h-5 text-brand-violet" />}
+            </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-xl bg-white/5 border border-surface-border text-slate-300 hover:text-white focus:outline-none"

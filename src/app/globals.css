@@ -67,3 +67,50 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #7C3AED;
 }
+
+/* Light Mode Overrides */
+html.light body {
+  background-color: #F8FAFC;
+  color: #0F172A;
+}
+
+html.light .glass-panel {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(226, 232, 240, 0.8);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+}
+
+html.light .glass-card {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%);
+  border-color: rgba(226, 232, 240, 0.9);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+html.light .glass-card:hover {
+  border-color: rgba(124, 58, 237, 0.5);
+  box-shadow: 0 15px 35px -5px rgba(124, 58, 237, 0.15);
+}
+
+html.light .gradient-text {
+  background: linear-gradient(135deg, #0F172A 0%, #6D28D9 60%, #8B5CF6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html.light .bg-navy-950 {
+  background-color: #F8FAFC !important;
+}
+
+html.light .bg-navy-900 {
+  background-color: #FFFFFF !important;
+}
+
+html.light .text-white {
+  color: #0F172A !important;
+}
+
+html.light .text-slate-300,
+html.light .text-slate-400 {
+  color: #475569 !important;
+}

@@ -19,13 +19,13 @@ export const Footer: React.FC<FooterProps> = ({ footerData, siteSettings }) => {
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-primary/10 rounded-full blur-3xl pointer-events-none -translate-y-1/2" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-violet/10 rounded-full blur-3xl pointer-events-none translate-y-1/2" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-full px-4 sm:px-8 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-surface-border">
           {/* Col 1: Brand & Bio */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="inline-block group">
-              <div className="bg-white/95 px-3.5 py-2 rounded-xl border border-white/20 shadow-glow-sm group-hover:scale-105 transition-transform duration-300 inline-flex items-center justify-center">
-                <img src={footerLogoUrl} alt="Webrik — Innovating Ideas" className="h-9 sm:h-10 object-contain" />
+              <div className="inline-flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                <img src={footerLogoUrl} alt="Webrik — Innovating Ideas" className="h-10 sm:h-12 w-auto object-contain" />
               </div>
             </Link>
             <p className="text-slate-400 text-sm max-w-sm leading-relaxed">

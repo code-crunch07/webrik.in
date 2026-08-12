@@ -15,7 +15,7 @@ export const CTABlock: React.FC<{ block: any }> = ({ block }) => {
 
   return (
     <section className="py-20 relative overflow-hidden bg-navy-950">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="glass-card rounded-3xl p-10 lg:p-16 border border-brand-violet/40 bg-gradient-to-r from-navy-900 via-navy-850 to-brand-primary/20 relative overflow-hidden shadow-2xl">
           {/* Background Ambient Glow */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-brand-primary/20 rounded-full blur-3xl pointer-events-none" />

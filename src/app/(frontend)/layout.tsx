@@ -6,6 +6,8 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { getHeaderGlobal, getFooterGlobal, getSiteSettings, getAnalyticsSettings } from '@/lib/payload'
 
+import { ThemeProvider } from '@/components/theme/ThemeProvider'
+
 const dmSans = DM_Sans({
   subsets: ['latin'],
   variable: '--font-dm-sans',
@@ -48,9 +50,11 @@ export default async function FrontendLayout({ children }: { children: React.Rea
         )}
       </head>
       <body className="bg-navy-950 text-slate-100 antialiased selection:bg-brand-violet selection:text-white">
-        <Header headerData={headerData} siteSettings={siteSettings} />
-        <main className="min-h-screen">{children}</main>
-        <Footer footerData={footerData} siteSettings={siteSettings} />
+        <ThemeProvider>
+          <Header headerData={headerData} siteSettings={siteSettings} />
+          <main className="min-h-screen">{children}</main>
+          <Footer footerData={footerData} siteSettings={siteSettings} />
+        </ThemeProvider>
       </body>
     </html>
   )

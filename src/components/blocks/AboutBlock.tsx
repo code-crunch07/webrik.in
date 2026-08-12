@@ -8,7 +8,7 @@ import { CheckCircle2, ShieldCheck, Zap, Layers, Cpu, ArrowRight } from 'lucide-
 export const AboutBlock: React.FC<{ block: any }> = ({ block }) => {
   return (
     <section className="py-24 bg-navy-900 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Column Text */}
           <div className="lg:col-span-6 space-y-6">

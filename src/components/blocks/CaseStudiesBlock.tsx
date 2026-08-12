@@ -39,7 +39,7 @@ export const CaseStudiesBlock: React.FC<{ block: any; caseStudies?: any[] }> = (
 
   return (
     <section className="py-24 bg-navy-950 relative border-t border-surface-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-primary/10 border border-brand-violet/30 text-brand-violet text-xs font-bold uppercase tracking-wider mb-3">
             <span>{block?.eyebrow || 'CASE STUDIES'}</span>

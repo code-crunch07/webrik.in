@@ -19,7 +19,7 @@ export const LogoCloudBlock: React.FC<{ block: any; clients?: any[] }> = ({ bloc
 
   return (
     <section className="py-14 border-y border-surface-border bg-navy-950/80 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <p className="text-center text-xs font-bold uppercase tracking-widest text-slate-400 mb-8">
           {heading}
         </p>
