@@ -33,6 +33,8 @@ COPY --from=base --chown=nextjs:nodejs /app/src ./src
 COPY --from=base --chown=nextjs:nodejs /app/node_modules ./node_modules
 COPY --from=base /app/package.json ./package.json
 
+RUN mkdir -p /app/public/media && chown -R nextjs:nodejs /app/public
+
 USER nextjs
 
 EXPOSE 3022
