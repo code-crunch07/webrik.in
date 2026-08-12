@@ -10,7 +10,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: webrik_db
     ports:
-      - "5432:5432"
+      - "127.0.0.1:5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
@@ -26,12 +26,13 @@ services:
     container_name: webrik_app
     restart: always
     ports:
-      - "3000:3000"
+      - "127.0.0.1:3022:3022"
     environment:
       - DATABASE_URI=postgresql://postgres:postgres@postgres:5432/webrik_db
       - PAYLOAD_SECRET=webrik_super_secret_payload_jwt_key_2026
-      - NEXT_PUBLIC_SITE_URL=http://localhost:3000
-      - NEXT_PUBLIC_SERVER_URL=http://localhost:3000
+      - PORT=3022
+      - NEXT_PUBLIC_SITE_URL=http://localhost:3022
+      - NEXT_PUBLIC_SERVER_URL=http://localhost:3022
     depends_on:
       postgres:
         condition: service_healthy

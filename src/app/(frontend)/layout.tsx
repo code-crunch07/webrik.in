@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: 'Webrik | Software Development & Digital Marketing Agency',
   description:
     'Webrik is a software development and digital marketing agency that helps brands build powerful digital experiences, scalable Next.js platforms, mobile apps, and execute result-driven growth marketing.',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3022'),
 }
 
 export default async function FrontendLayout({ children }: { children: React.ReactNode }) {

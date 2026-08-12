@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3022",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3022",
     "lint": "next lint",
     "payload": "payload",
     "seed": "node --loader ts-node/esm src/seed/seed.ts"
