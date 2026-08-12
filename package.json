@@ -9,7 +9,7 @@
     "start": "next start -p 3022",
     "lint": "next lint",
     "payload": "payload",
-    "seed": "node --loader ts-node/esm src/seed/seed.ts"
+    "seed": "npx -y tsx src/seed/seed.ts"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.24.0",
@@ -27,7 +27,9 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "sharp": "^0.33.5",
-    "tailwind-merge": "^3.0.1"
+    "tailwind-merge": "^3.0.1",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.2"
   },
   "devDependencies": {
     "@types/node": "^22.13.4",
