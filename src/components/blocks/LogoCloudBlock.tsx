@@ -25,16 +25,27 @@ export const LogoCloudBlock: React.FC<{ block: any; clients?: any[] }> = ({ bloc
         </p>
 
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6 items-center justify-items-center">
-          {displayClients.map((client, idx) => (
-            <div
-              key={idx}
-              className="px-4 py-3 rounded-xl bg-surface-dark/50 border border-surface-border/50 hover:border-brand-violet/40 hover:bg-white/5 transition-all duration-300 w-full flex items-center justify-center group"
-            >
-              <span className="font-extrabold text-base tracking-tight text-slate-300 group-hover:text-white transition-colors">
-                {client.name}
-              </span>
-            </div>
-          ))}
+          {displayClients.map((client, idx) => {
+            const logoUrl = typeof client?.logo === 'object' && client?.logo?.url ? client.logo.url : null
+            return (
+              <div
+                key={idx}
+                className="px-4 py-3 rounded-xl bg-surface-dark/50 border border-surface-border/50 hover:border-brand-violet/40 hover:bg-white/5 transition-all duration-300 w-full min-h-[56px] flex items-center justify-center group"
+              >
+                {logoUrl ? (
+                  <img
+                    src={logoUrl}
+                    alt={client.name || 'Client Logo'}
+                    className="max-h-8 w-auto object-contain opacity-70 group-hover:opacity-100 transition-opacity filter grayscale group-hover:grayscale-0"
+                  />
+                ) : (
+                  <span className="font-extrabold text-base tracking-tight text-slate-300 group-hover:text-white transition-colors">
+                    {client.name}
+                  </span>
+                )}
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>
