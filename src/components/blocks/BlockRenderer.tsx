@@ -16,6 +16,7 @@ import { BlogGridBlock } from './BlogGridBlock'
 import { FAQBlock } from './FAQBlock'
 import { CTABlock } from './CTABlock'
 import { ContactBlock } from './ContactBlock'
+import { RichTextBlock } from './RichTextBlock'
 import { ProjectCalculator } from '../interactive/ProjectCalculator'
 
 interface BlockRendererProps {
