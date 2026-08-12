@@ -6,6 +6,11 @@ export async function seedDatabase() {
   const payload = await getPayload({ config: configPromise })
 
   try {
+    if (payload.db.push) {
+      console.log('🔄 Ensuring Database Schema Tables Exist...')
+      await payload.db.push()
+    }
+
     // 1. Create Super Admin User if not exists
     const users = await payload.find({ collection: 'users', limit: 1 })
     if (users.docs.length === 0) {

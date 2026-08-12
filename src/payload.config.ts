@@ -84,6 +84,7 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URI || 'postgresql://postgres:postgres@postgres:5432/webrik_db',
     },
+    push: true,
   }),
   sharp,
 })
