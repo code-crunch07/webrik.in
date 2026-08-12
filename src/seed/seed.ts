@@ -1,9 +1,18 @@
 import { getPayload } from 'payload'
+import { pushDevSchema } from '@payloadcms/drizzle'
 import configPromise from '../payload.config'
 
 export async function seedDatabase() {
   console.log('🌱 Starting Webrik Payload CMS Database Seeding...')
+  process.env.PAYLOAD_FORCE_DRIZZLE_PUSH = 'true'
   const payload = await getPayload({ config: configPromise })
+
+  try {
+    console.log('🔄 Pushing Database Schema Tables...')
+    await pushDevSchema(payload.db as any)
+  } catch (pushErr: any) {
+    console.log('Schema sync notice:', pushErr?.message || pushErr)
+  }
 
   try {
     // 1. Create Super Admin User if not exists
