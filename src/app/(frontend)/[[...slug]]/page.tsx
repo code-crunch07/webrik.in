@@ -91,6 +91,7 @@ export default async function DynamicPage({ params }: PageProps) {
     { blockType: 'teamBlock', eyebrow: 'OUR LEADERSHIP', heading: 'The Minds Behind Webrik' },
     { blockType: 'blogGridBlock', eyebrow: 'INSIGHTS & ARTICLES', heading: 'Latest from Engineering & Growth' },
     { blockType: 'faqBlock', eyebrow: 'GOT QUESTIONS?', heading: 'Frequently Asked Questions' },
+    { blockType: 'projectCalculatorBlock' },
     { blockType: 'ctaBlock', heading: 'Ready to Build Something Extraordinary?' },
   ]
 

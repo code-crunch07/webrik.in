@@ -32,7 +32,7 @@ export const HeroBlock: React.FC<{ block: any }> = ({ block }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-brand-primary/10 border border-brand-violet/30 text-brand-violet text-xs sm:text-sm font-semibold shadow-glow-sm"
+              className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-brand-primary/10 border border-brand-violet/40 text-brand-violet text-xs sm:text-sm font-bold tracking-wide shadow-glow-sm"
             >
               <Sparkles className="w-4 h-4 text-brand-violet animate-pulse" />
               <span>{eyebrow}</span>
@@ -43,10 +43,10 @@ export const HeroBlock: React.FC<{ block: any }> = ({ block }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight text-white leading-[1.08]"
+              className="text-4xl sm:text-6xl xl:text-7xl font-black tracking-tight text-white leading-[1.05]"
             >
               We Build. We Market.{' '}
-              <span className="gradient-text">We Grow Your Business.</span>
+              <span className="gradient-text drop-shadow-sm">We Grow Your Business.</span>
             </motion.h1>
 
             {/* Subtext */}
@@ -58,6 +58,23 @@ export const HeroBlock: React.FC<{ block: any }> = ({ block }) => {
             >
               {description}
             </motion.p>
+
+            {/* Tech Stack Pills */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.25 }}
+              className="flex flex-wrap gap-2 pt-1"
+            >
+              {['Next.js 15', 'Payload CMS 3', 'TypeScript', 'React Native', 'SEO & AI Automation'].map((tech, idx) => (
+                <span
+                  key={idx}
+                  className="px-3 py-1 rounded-lg bg-navy-900/80 border border-surface-border text-xs font-semibold text-slate-300 hover:border-brand-violet/50 hover:text-white transition-all cursor-default"
+                >
+                  ⚡ {tech}
+                </span>
+              ))}
+            </motion.div>
 
             {/* Buttons */}
             <motion.div
@@ -75,7 +92,7 @@ export const HeroBlock: React.FC<{ block: any }> = ({ block }) => {
               </Link>
               <Link
                 href={secondaryUrl}
-                className="px-7 py-4 rounded-xl text-base font-bold text-slate-200 bg-surface-dark border border-surface-border hover:border-brand-violet hover:bg-white/5 transition-all duration-300 flex items-center space-x-2"
+                className="px-7 py-4 rounded-xl text-base font-bold text-slate-200 glass-card border border-surface-border hover:border-brand-violet transition-all duration-300 flex items-center space-x-2"
               >
                 <span>{secondaryLabel}</span>
               </Link>
@@ -89,15 +106,15 @@ export const HeroBlock: React.FC<{ block: any }> = ({ block }) => {
               className="pt-6 grid grid-cols-3 gap-4 border-t border-surface-border/60"
             >
               <div>
-                <div className="text-2xl font-black text-white">250+</div>
+                <div className="text-2xl sm:text-3xl font-black text-white">250+</div>
                 <div className="text-xs text-slate-400 font-medium">Projects Delivered</div>
               </div>
               <div>
-                <div className="text-2xl font-black text-white">120+</div>
+                <div className="text-2xl sm:text-3xl font-black text-white">120+</div>
                 <div className="text-xs text-slate-400 font-medium">Global Clients</div>
               </div>
               <div>
-                <div className="text-2xl font-black text-white">98%</div>
+                <div className="text-2xl sm:text-3xl font-black text-white">98%</div>
                 <div className="text-xs text-slate-400 font-medium">Client Retention</div>
               </div>
             </motion.div>

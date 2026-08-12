@@ -16,7 +16,7 @@ import { BlogGridBlock } from './BlogGridBlock'
 import { FAQBlock } from './FAQBlock'
 import { CTABlock } from './CTABlock'
 import { ContactBlock } from './ContactBlock'
-import { RichTextBlock } from './RichTextBlock'
+import { ProjectCalculator } from '../interactive/ProjectCalculator'
 
 interface BlockRendererProps {
   blocks?: any[]
@@ -75,6 +75,8 @@ export const BlockRenderer: React.FC<BlockRendererProps> = ({ blocks, dynamicDat
             return <BlogGridBlock key={index} block={block} posts={dynamicData?.posts} />
           case 'faqBlock':
             return <FAQBlock key={index} block={block} faqs={dynamicData?.faqs} />
+          case 'projectCalculatorBlock':
+            return <ProjectCalculator key={index} />
           case 'ctaBlock':
             return <CTABlock key={index} block={block} />
           case 'contactBlock':
