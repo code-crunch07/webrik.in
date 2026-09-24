@@ -29,19 +29,19 @@ export default async function ProjectDetailPage({ params }: ProjectDetailProps) 
   const desc = project?.shortDescription || 'High-performance web architecture and digital strategy engineered by Webrik.'
 
   return (
-    <div className="pt-32 pb-24 bg-navy-950 min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-36 pb-24 bg-[#FAFAFD] text-slate-900 min-h-screen">
+      <div className="w-full px-4 sm:px-8 lg:px-12">
         <div className="max-w-4xl space-y-6 mb-16">
           <div className="flex items-center space-x-3">
-            <span className="px-3.5 py-1 rounded-md bg-brand-primary/20 text-brand-violet font-bold text-xs">
+            <span className="px-3.5 py-1 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 font-bold text-xs uppercase tracking-wider">
               {category}
             </span>
-            <span className="text-sm font-mono text-slate-400">Client: {clientName}</span>
+            <span className="text-sm font-semibold text-slate-500">Client: {clientName}</span>
           </div>
-          <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight">
+          <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight">
             {title}
           </h1>
-          <p className="text-slate-300 text-xl leading-relaxed">
+          <p className="text-slate-600 text-xl leading-relaxed">
             {desc}
           </p>
         </div>

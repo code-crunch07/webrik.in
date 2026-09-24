@@ -14,6 +14,7 @@ import {
   getFAQs,
 } from '@/lib/payload'
 import { BlockRenderer } from '@/components/blocks/BlockRenderer'
+import { DarkMinimalistAgencyHomepage } from '@/components/home/DarkMinimalistAgencyHomepage'
 
 interface PageProps {
   params: Promise<{
@@ -71,9 +72,15 @@ export default async function DynamicPage({ params }: PageProps) {
     faqs,
   }
 
+  // Render dedicated Dark Minimalist Agency layout for homepage
+  if (slug === 'home') {
+    return <DarkMinimalistAgencyHomepage dynamicData={dynamicData} />
+  }
+
   // If Page Document exists in Payload CMS and has layout blocks
   if (pageDoc && pageDoc.layout && pageDoc.layout.length > 0) {
-    return <BlockRenderer blocks={pageDoc.layout} dynamicData={dynamicData} />
+    let layoutBlocks = [...pageDoc.layout]
+    return <BlockRenderer blocks={layoutBlocks} dynamicData={dynamicData} />
   }
 
   // Default Fallback Layout for initial run before database seed or if page blocks are empty
@@ -125,15 +132,18 @@ export default async function DynamicPage({ params }: PageProps) {
 
   if (slug === 'careers') {
     return (
-      <div className="pt-32 pb-24 bg-navy-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="pt-36 pb-24 bg-[#FAFAFD] text-slate-900">
+        <div className="w-full px-4 sm:px-8 lg:px-12">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h1 className="text-4xl sm:text-6xl font-black text-white">Join Webrik</h1>
-            <p className="mt-4 text-slate-300 text-lg">
-              We are hiring world-class engineers, product designers, and growth marketers.
+            <span className="text-xs font-bold text-indigo-700 bg-indigo-50 border border-indigo-200/80 px-3.5 py-1.5 rounded-full uppercase tracking-wider">
+              Careers at Webrik
+            </span>
+            <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900 mt-4">Join Our Team</h1>
+            <p className="mt-4 text-slate-600 text-lg">
+              We are hiring world-class engineers, product designers, and performance growth marketers.
             </p>
           </div>
-          <BlockRenderer blocks={[{ blockType: 'ctaBlock', heading: 'Explore Open Positions at Webrik' }]} dynamicData={dynamicData} />
+          <BlockRenderer blocks={[{ blockType: 'ctaBlock', heading: 'Explore Open Engineering & Growth Roles at Webrik' }]} dynamicData={dynamicData} />
         </div>
       </div>
     )

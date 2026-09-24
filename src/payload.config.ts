@@ -46,6 +46,7 @@ export default buildConfig({
         Logo: './payload/components/AdminLogo#AdminLogo',
         Icon: './payload/components/AdminIcon#AdminIcon',
       },
+      beforeDashboard: ['./payload/components/BeforeDashboard#BeforeDashboard'],
     },
   },
   editor: lexicalEditor({}),

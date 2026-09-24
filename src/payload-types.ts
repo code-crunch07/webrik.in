@@ -1888,7 +1888,14 @@ export interface SiteSetting {
   id: number;
   siteName: string;
   tagline?: string | null;
+  /**
+   * Uploaded image will dynamically update the website header and footer logo.
+   */
   logo?: (number | null) | Media;
+  /**
+   * Uploaded image will display on the Payload CMS Admin Login screen and top navigation sidebar.
+   */
+  adminLogo?: (number | null) | Media;
   contactPhone?: string | null;
   contactEmail?: string | null;
   address?: string | null;
@@ -1993,6 +2000,7 @@ export interface SiteSettingsSelect<T extends boolean = true> {
   siteName?: T;
   tagline?: T;
   logo?: T;
+  adminLogo?: T;
   contactPhone?: T;
   contactEmail?: T;
   address?: T;

@@ -2,50 +2,30 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Linkedin } from 'lucide-react'
+import { Linkedin, Twitter, Github } from 'lucide-react'
 
-export const TeamBlock: React.FC<{ block: any; teamMembers?: any[] }> = ({ block, teamMembers }) => {
+export const TeamBlock: React.FC<{ block: any; team?: any[] }> = ({ block, team }) => {
   const defaultTeam = [
-    {
-      name: 'Rahul Shah',
-      designation: 'Founder & Chief Technology Officer',
-      bio: 'Ex-Google engineer specializing in Next.js cloud architecture, high-frequency backend APIs, and enterprise digital strategy.',
-      skills: ['Architecture', 'Next.js', 'PostgreSQL', 'Cloud'],
-    },
-    {
-      name: 'Priya Mehta',
-      designation: 'VP of Digital Marketing',
-      bio: 'Growth strategist who managed ₹10Cr+ in performance marketing ad spend with focus on ROAS & CAC optimization.',
-      skills: ['Performance Marketing', 'SEO', 'Google Ads'],
-    },
-    {
-      name: 'Amitabh Desai',
-      designation: 'Head of UI/UX Design',
-      bio: 'Design strategist crafting modern SaaS interfaces and high-converting agency design systems.',
-      skills: ['Design Systems', 'Figma', 'User Research'],
-    },
-    {
-      name: 'Siddharth Rao',
-      designation: 'Lead Mobile & SaaS Architect',
-      bio: 'Specialist in React Native, iOS, Android, and multi-tenant SaaS backend engineering.',
-      skills: ['React Native', 'Node.js', 'Docker'],
-    },
+    { name: 'Rahul Shah', role: 'Founder & Managing Director', bio: 'Full-stack software architect with 8+ years leading enterprise engineering & growth campaigns.' },
+    { name: 'Priya Mehta', role: 'Head of Growth & Performance Marketing', bio: 'Specialist in Meta Ads, Google Ads PPC, and high-converting marketing funnels.' },
+    { name: 'Amit Verma', role: 'Lead Full-Stack Developer', bio: 'Expert in Next.js, React Native, Payload CMS, and PostgreSQL cloud architecture.' },
+    { name: 'Sneha Patel', role: 'Senior UI/UX Designer', bio: 'Crafting ultra-sleek, user-centric interfaces and interactive product design systems.' },
   ]
 
-  const displayTeam = teamMembers && teamMembers.length > 0 ? teamMembers : defaultTeam
+  const displayTeam = team && team.length > 0 ? team : defaultTeam
 
   return (
-    <section className="py-24 bg-navy-900 relative">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-slate-50 relative border-t border-slate-200/80">
+      <div className="w-full px-4 sm:px-8 lg:px-12">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-primary/10 border border-brand-violet/30 text-brand-violet text-xs font-bold uppercase tracking-wider mb-3">
-            <span>{block?.eyebrow || 'LEADERSHIP & ENGINEERING'}</span>
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-bold uppercase tracking-wider mb-3 shadow-xs">
+            <span>OUR LEADERSHIP & ENGINEERS</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
-            {block?.heading || 'The Minds Behind Webrik'}
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+            The Minds Behind Webrik
           </h2>
-          <p className="mt-4 text-slate-300 text-base sm:text-lg">
-            Experienced engineers, digital strategists, and product designers dedicated to your growth.
+          <p className="mt-4 text-slate-600 text-base sm:text-lg">
+            Senior engineers, growth strategists, and UI/UX designers dedicated to your success.
           </p>
         </div>
 
@@ -57,28 +37,30 @@ export const TeamBlock: React.FC<{ block: any; teamMembers?: any[] }> = ({ block
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className="glass-card rounded-2xl p-6 flex flex-col justify-between group"
+              className="bg-white rounded-3xl p-7 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-indigo-300 transition-all flex flex-col justify-between"
             >
-              <div>
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-brand-primary via-brand-violet to-brand-cyan flex items-center justify-center text-white font-extrabold text-2xl shadow-glow-sm mb-4">
-                  {member.name.charAt(0)}
+              <div className="space-y-3">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-indigo-600 via-indigo-700 to-purple-600 flex items-center justify-center text-white text-xl font-extrabold shadow-md shadow-indigo-500/20">
+                  {member.name.split(' ').map((n: string) => n[0]).join('')}
                 </div>
-
-                <h3 className="text-xl font-bold text-white mb-1">{member.name}</h3>
-                <p className="text-xs font-semibold text-brand-violet mb-3">{member.designation}</p>
-                <p className="text-slate-400 text-xs leading-relaxed mb-4">{member.bio}</p>
+                <div>
+                  <h3 className="text-lg font-extrabold text-slate-900">{member.name}</h3>
+                  <div className="text-xs font-semibold text-indigo-600 mt-0.5">{member.role}</div>
+                </div>
+                <p className="text-slate-600 text-xs leading-relaxed pt-1">
+                  {member.bio}
+                </p>
               </div>
 
-              <div className="pt-3 border-t border-surface-border flex items-center justify-between">
-                <div className="flex flex-wrap gap-1">
-                  {(member.skills || []).slice(0, 2).map((s: string, sidx: number) => (
-                    <span key={sidx} className="px-2 py-0.5 rounded text-[10px] bg-white/5 text-slate-300">
-                      {s}
-                    </span>
-                  ))}
-                </div>
-                <a href="#" className="text-slate-400 hover:text-white transition-colors">
+              <div className="pt-6 mt-6 border-t border-slate-100 flex items-center space-x-3">
+                <a href="#" className="p-2 rounded-xl bg-slate-100 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 transition-colors">
                   <Linkedin className="w-4 h-4" />
+                </a>
+                <a href="#" className="p-2 rounded-xl bg-slate-100 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 transition-colors">
+                  <Twitter className="w-4 h-4" />
+                </a>
+                <a href="#" className="p-2 rounded-xl bg-slate-100 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 transition-colors">
+                  <Github className="w-4 h-4" />
                 </a>
               </div>
             </motion.div>

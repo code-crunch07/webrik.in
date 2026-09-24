@@ -3,7 +3,7 @@
 import React from 'react'
 
 export const LogoCloudBlock: React.FC<{ block: any; clients?: any[] }> = ({ block, clients }) => {
-  const heading = block?.heading || 'Trusted by Industry Leaders'
+  const heading = block?.heading || 'TRUSTED BY 120+ HIGH-GROWTH ENTERPRISES & BRANDS'
 
   const defaultClients = [
     { name: 'JW Marriott', category: 'Hospitality' },
@@ -18,28 +18,28 @@ export const LogoCloudBlock: React.FC<{ block: any; clients?: any[] }> = ({ bloc
   const displayClients = clients && clients.length > 0 ? clients : defaultClients
 
   return (
-    <section className="py-14 border-y border-surface-border bg-navy-950/80 relative overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-center text-xs font-bold uppercase tracking-widest text-slate-400 mb-8">
+    <section className="py-14 border-y border-slate-200/80 bg-white relative overflow-hidden">
+      <div className="w-full px-4 sm:px-8 lg:px-12">
+        <p className="text-center text-xs font-bold uppercase tracking-widest text-slate-500 mb-8">
           {heading}
         </p>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6 items-center justify-items-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 items-center justify-items-center">
           {displayClients.map((client, idx) => {
             const logoUrl = typeof client?.logo === 'object' && client?.logo?.url ? client.logo.url : null
             return (
               <div
                 key={idx}
-                className="px-4 py-3 rounded-xl bg-surface-dark/50 border border-surface-border/50 hover:border-brand-violet/40 hover:bg-white/5 transition-all duration-300 w-full min-h-[56px] flex items-center justify-center group"
+                className="px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200/70 hover:border-indigo-300 hover:bg-indigo-50/40 hover:shadow-md transition-all duration-300 w-full min-h-[60px] flex items-center justify-center group"
               >
                 {logoUrl ? (
                   <img
                     src={logoUrl}
                     alt={client.name || 'Client Logo'}
-                    className="max-h-8 w-auto object-contain opacity-70 group-hover:opacity-100 transition-opacity filter grayscale group-hover:grayscale-0"
+                    className="max-h-8 w-auto object-contain opacity-75 group-hover:opacity-100 transition-opacity"
                   />
                 ) : (
-                  <span className="font-extrabold text-base tracking-tight text-slate-300 group-hover:text-white transition-colors">
+                  <span className="font-extrabold text-sm tracking-tight text-slate-700 group-hover:text-indigo-600 transition-colors">
                     {client.name}
                   </span>
                 )}

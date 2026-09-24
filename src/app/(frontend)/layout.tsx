@@ -5,7 +5,6 @@ import '../globals.css'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { getHeaderGlobal, getFooterGlobal, getSiteSettings, getAnalyticsSettings } from '@/lib/payload'
-
 import { ThemeProvider } from '@/components/theme/ThemeProvider'
 
 const dmSans = DM_Sans({
@@ -17,7 +16,7 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: 'Webrik | Software Development & Digital Marketing Agency',
   description:
-    'Webrik is a software development and digital marketing agency that helps brands build powerful digital experiences, scalable Next.js platforms, mobile apps, and execute result-driven growth marketing.',
+    'Webrik is an engineering and digital marketing agency that helps ambitious brands build powerful digital platforms, scalable web applications, mobile apps, and execute result-driven growth marketing.',
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3022'),
 }
 
@@ -49,7 +48,7 @@ export default async function FrontendLayout({ children }: { children: React.Rea
           </>
         )}
       </head>
-      <body className="bg-navy-950 text-slate-100 antialiased selection:bg-brand-violet selection:text-white">
+      <body className="bg-[#050711] text-slate-100 antialiased selection:bg-cyan-500 selection:text-black">
         <ThemeProvider>
           <Header headerData={headerData} siteSettings={siteSettings} />
           <main className="min-h-screen">{children}</main>

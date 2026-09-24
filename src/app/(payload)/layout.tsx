@@ -2,6 +2,8 @@ import config from '@payload-config'
 import { handleServerFunctions, RootLayout } from '@payloadcms/next/layouts'
 import React from 'react'
 import '@payloadcms/next/css'
+import '@/payload/custom-admin.css'
+import { importMap } from './admin/importMap.js'
 
 type Args = {
   children: React.ReactNode
@@ -12,12 +14,12 @@ const serverFunction = async (args: any) => {
   return handleServerFunctions({
     ...args,
     config,
-    importMap: {},
+    importMap,
   })
 }
 
 const Layout = ({ children }: Args) => (
-  <RootLayout config={config} importMap={{}} serverFunction={serverFunction}>
+  <RootLayout config={config} importMap={importMap} serverFunction={serverFunction}>
     {children}
   </RootLayout>
 )

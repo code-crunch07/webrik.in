@@ -71,7 +71,7 @@ export const BlockRenderer: React.FC<BlockRendererProps> = ({ blocks, dynamicDat
           case 'testimonialsBlock':
             return <TestimonialsBlock key={index} block={block} testimonials={dynamicData?.testimonials} />
           case 'teamBlock':
-            return <TeamBlock key={index} block={block} teamMembers={dynamicData?.teamMembers} />
+            return <TeamBlock key={index} block={block} team={dynamicData?.teamMembers} />
           case 'blogGridBlock':
             return <BlogGridBlock key={index} block={block} posts={dynamicData?.posts} />
           case 'faqBlock':

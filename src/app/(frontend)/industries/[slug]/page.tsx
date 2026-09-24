@@ -27,23 +27,23 @@ export default async function IndustryDetailPage({ params }: IndustryDetailProps
   const description = ind?.shortDescription || `Webrik builds specialized software platforms and growth marketing engines tailored for the ${name} sector.`
 
   return (
-    <div className="pt-32 pb-24 bg-navy-950 min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-36 pb-24 bg-[#FAFAFD] text-slate-900 min-h-screen">
+      <div className="w-full px-4 sm:px-8 lg:px-12">
         <div className="max-w-3xl space-y-6 mb-16">
-          <span className="px-3.5 py-1.5 rounded-full bg-brand-primary/10 border border-brand-violet/30 text-brand-violet text-xs font-bold uppercase tracking-wider">
+          <span className="px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-bold uppercase tracking-wider">
             INDUSTRY VERTICAL
           </span>
-          <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight">
+          <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight">
             {name} Digital Solutions
           </h1>
-          <p className="text-slate-300 text-xl leading-relaxed">
+          <p className="text-slate-600 text-xl leading-relaxed">
             {description}
           </p>
 
           <div className="pt-4">
             <Link
               href="/contact"
-              className="px-7 py-4 rounded-xl text-base font-bold text-white bg-gradient-to-r from-brand-primary to-brand-violet shadow-glow-md inline-flex items-center space-x-2"
+              className="px-8 py-4 rounded-xl text-base font-bold text-white bg-gradient-to-r from-indigo-600 to-purple-600 shadow-lg shadow-indigo-500/20 hover:shadow-xl transition-all inline-flex items-center space-x-2"
             >
               <span>Discuss {name} Project</span>
               <ArrowRight className="w-5 h-5" />

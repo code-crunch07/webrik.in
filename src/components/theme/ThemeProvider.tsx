@@ -16,16 +16,14 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [theme, setThemeState] = useState<Theme>('dark')
 
   useEffect(() => {
-    // Check saved theme or system preference
+    // Check saved theme or default to dark
     const savedTheme = localStorage.getItem('webrik-theme') as Theme | null
     if (savedTheme === 'light' || savedTheme === 'dark') {
       setThemeState(savedTheme)
       applyTheme(savedTheme)
     } else {
-      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-      const initialTheme = systemPrefersDark ? 'dark' : 'dark' // default to dark
-      setThemeState(initialTheme)
-      applyTheme(initialTheme)
+      setThemeState('dark')
+      applyTheme('dark')
     }
   }, [])
 
@@ -49,7 +47,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   }
 
   const toggleTheme = () => {
-    const nextTheme = theme === 'dark' ? 'light' : 'dark'
+    const nextTheme = theme === 'light' ? 'dark' : 'light'
     setTheme(nextTheme)
   }
 

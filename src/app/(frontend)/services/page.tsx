@@ -13,13 +13,16 @@ export default async function ServicesPage() {
   const services = await getServices()
 
   return (
-    <div className="pt-32 pb-16 bg-navy-950">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight">
-            Our Services & Capabilities
+    <div className="pt-36 pb-16 bg-[#FAFAFD]">
+      <div className="w-full px-4 sm:px-8 lg:px-12">
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <span className="text-xs font-bold text-indigo-700 bg-indigo-50 border border-indigo-200/80 px-3.5 py-1.5 rounded-full uppercase tracking-wider">
+            Full-Stack Solutions
+          </span>
+          <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight mt-4">
+            Our Services & Engineering Capabilities
           </h1>
-          <p className="mt-4 text-slate-300 text-lg">
+          <p className="mt-4 text-slate-600 text-lg leading-relaxed">
             Software Development + Digital Marketing engineered for enterprise scale and measurable business growth.
           </p>
         </div>

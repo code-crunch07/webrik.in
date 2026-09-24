@@ -3,21 +3,9 @@
 import React from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import {
-  Building2,
-  Stethoscope,
-  ShoppingBag,
-  Gem,
-  GraduationCap,
-  Landmark,
-  Hotel,
-  Cloud,
-  Factory,
-  Briefcase,
-  ArrowRight,
-} from 'lucide-react'
+import { Building2, Stethoscope, ShoppingBag, Gem, GraduationCap, Landmark, Hotel, Cpu, ArrowRight } from 'lucide-react'
 
-const iconMap: Record<string, any> = {
+const industryIcons: Record<string, any> = {
   'real-estate': Building2,
   healthcare: Stethoscope,
   'e-commerce': ShoppingBag,
@@ -25,68 +13,67 @@ const iconMap: Record<string, any> = {
   education: GraduationCap,
   finance: Landmark,
   hospitality: Hotel,
-  saas: Cloud,
-  manufacturing: Factory,
-  services: Briefcase,
+  saas: Cpu,
 }
 
 export const IndustriesGridBlock: React.FC<{ block: any; industries?: any[] }> = ({ block, industries }) => {
   const defaultIndustries = [
-    { name: 'Real Estate', slug: 'real-estate', icon: 'real-estate', shortDescription: 'Virtual tour platforms, lead CRM automation, and high-converting landing pages for luxury developers.' },
-    { name: 'Healthcare & MedTech', slug: 'healthcare', icon: 'healthcare', shortDescription: 'HIPAA-compliant patient portals, appointment scheduling, and local SEO for medical clinics.' },
-    { name: 'E-commerce & Retail', slug: 'e-commerce', icon: 'e-commerce', shortDescription: 'Headless storefronts, Shopify integrations, and performance marketing to boost ROAS.' },
-    { name: 'Jewellery & Luxury', slug: 'jewellery', icon: 'jewellery', shortDescription: '3D product configurators, high-resolution catalog showcases, and VIP customer retention.' },
-    { name: 'Education & EdTech', slug: 'education', icon: 'education', shortDescription: 'LMS platforms, student enrollment funnels, and automated performance tracking.' },
-    { name: 'Finance & Fintech', slug: 'finance', icon: 'finance', shortDescription: 'Secure payment gateways, wealth management web apps, and compliant marketing campaigns.' },
+    { name: 'Real Estate', slug: 'real-estate', description: 'Virtual tours, lead CRM integration, and high-converting portals for luxury developers.' },
+    { name: 'Healthcare & MedTech', slug: 'healthcare', description: 'HIPAA-compliant patient portals, appointment scheduling, and healthcare SEO.' },
+    { name: 'E-commerce & Retail', slug: 'e-commerce', description: 'Headless Next.js storefronts, payment gateways, and performance marketing.' },
+    { name: 'Jewellery & Luxury', slug: 'jewellery', description: '3D product configurators, high-resolution luxury showcases, and VIP retention.' },
+    { name: 'Education & EdTech', slug: 'education', description: 'LMS platforms, student enrollment funnels, and automated course dashboards.' },
+    { name: 'Finance & Fintech', slug: 'finance', description: 'Secure payment gateways, wealth management apps, and compliant growth campaigns.' },
   ]
 
   const displayIndustries = industries && industries.length > 0 ? industries : defaultIndustries
 
   return (
-    <section className="py-24 bg-navy-950 relative">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-primary/10 border border-brand-violet/30 text-brand-violet text-xs font-bold uppercase tracking-wider mb-3">
-            <span>{block?.eyebrow || 'INDUSTRIES WE SERVE'}</span>
+    <section className="py-24 bg-white relative overflow-hidden border-t border-slate-200/80">
+      <div className="w-full px-4 sm:px-8 lg:px-12 relative z-10">
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-bold uppercase tracking-wider shadow-xs">
+            <span>Specialized Domain Expertise</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
-            {block?.heading || 'Tailored Solutions for High-Growth Verticals'}
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+            Tailored Digital Solutions for High-Growth Verticals
           </h2>
-          <p className="mt-4 text-slate-300 text-base sm:text-lg">
-            We bring deep domain expertise and specialized software frameworks to every sector.
+          <p className="text-slate-600 text-lg leading-relaxed">
+            We bring deep domain expertise, custom frameworks, and targeted performance marketing to every industry sector.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {displayIndustries.map((ind, idx) => {
-            const IconComp = iconMap[ind.slug] || Building2
+            const IconComponent = industryIcons[ind.slug] || Cpu
             return (
               <motion.div
                 key={ind.slug || idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.08 }}
-                className="glass-card rounded-2xl p-6 flex flex-col justify-between group"
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
               >
-                <div>
-                  <div className="w-12 h-12 rounded-xl bg-brand-violet/10 border border-brand-violet/30 flex items-center justify-center text-brand-violet mb-4 group-hover:scale-110 group-hover:bg-brand-violet group-hover:text-white transition-all">
-                    <IconComp className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-brand-violet transition-colors">
-                    {ind.name}
-                  </h3>
-                  <p className="text-slate-400 text-sm leading-relaxed mb-6">
-                    {ind.shortDescription}
-                  </p>
-                </div>
-
                 <Link
                   href={`/industries/${ind.slug}`}
-                  className="inline-flex items-center space-x-2 text-sm font-bold text-slate-300 hover:text-brand-violet transition-colors"
+                  className="block h-full bg-slate-50 hover:bg-white rounded-3xl p-8 border border-slate-200/80 hover:border-indigo-300 hover:shadow-xl hover:shadow-indigo-500/10 transition-all duration-300 group flex flex-col justify-between"
                 >
-                  <span>Explore Sector Solutions</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <div className="space-y-4">
+                    <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200 shadow-xs flex items-center justify-center text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+                      <IconComponent className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
+                      {ind.name}
+                    </h3>
+                    <p className="text-slate-600 text-sm leading-relaxed">
+                      {ind.description}
+                    </p>
+                  </div>
+
+                  <div className="pt-6 mt-6 border-t border-slate-200/60 flex items-center justify-between text-xs font-bold text-indigo-600 group-hover:text-indigo-700">
+                    <span>Explore Industry Solutions</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </Link>
               </motion.div>
             )

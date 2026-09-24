@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowRight, ExternalLink, Sparkles } from 'lucide-react'
+import { ArrowRight, Sparkles, ExternalLink } from 'lucide-react'
 
 export const PortfolioGridBlock: React.FC<{ block: any; projects?: any[] }> = ({ block, projects }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All')
@@ -16,8 +16,10 @@ export const PortfolioGridBlock: React.FC<{ block: any; projects?: any[] }> = ({
       slug: 'powaiflats-portal',
       clientName: 'PowaiFlats Real Estate',
       category: 'Web Development',
-      shortDescription: 'High-speed real estate portal with virtual 360 degree tours and lead automation CRM.',
-      tech: ['Next.js', 'PostgreSQL', 'Tailwind', 'Google Maps API'],
+      shortDescription: 'High-speed luxury real estate portal with virtual 360 degree tours and automated lead CRM.',
+      image: '/illustrations/webdev-nextjs.jpg',
+      metric: '+180% Organic Leads',
+      tech: ['Next.js 16', 'PostgreSQL', 'Tailwind CSS', 'Google Maps'],
     },
     {
       title: 'RRENA Jewels E-Store',
@@ -25,14 +27,18 @@ export const PortfolioGridBlock: React.FC<{ block: any; projects?: any[] }> = ({
       clientName: 'RRENA Luxury Jewels',
       category: 'E-commerce',
       shortDescription: 'Bespoke luxury e-commerce experience featuring 3D jewelry customization & VIP checkout.',
-      tech: ['React', 'Payload CMS', 'Shopify Plus', 'Three.js'],
+      image: '/illustrations/ecommerce-service.jpg',
+      metric: '4.2x Cart Conversion',
+      tech: ['React 19', 'Payload CMS 3', 'Shopify Plus', 'Stripe'],
     },
     {
       title: 'Lensza Eyewear App',
       slug: 'lensza-eyewear-app',
       clientName: 'Lensza Technologies',
       category: 'Mobile App',
-      shortDescription: 'AR-enabled eyewear virtual try-on iOS and Android mobile application.',
+      shortDescription: 'AR-enabled eyewear virtual try-on iOS and Android mobile application with face-mesh tracking.',
+      image: '/illustrations/mobile-app.jpg',
+      metric: '4.9 ★ (12k Reviews)',
       tech: ['React Native', 'ARKit', 'Node.js', 'AWS'],
     },
     {
@@ -40,8 +46,10 @@ export const PortfolioGridBlock: React.FC<{ block: any; projects?: any[] }> = ({
       slug: 'nvizion-analytics-saas',
       clientName: 'Nvizion Solutions',
       category: 'SaaS',
-      shortDescription: 'B2B enterprise marketing intelligence SaaS with real-time attribution dashboards.',
-      tech: ['Next.js 16', 'PostgreSQL', 'Tailwind', 'Chart.js'],
+      shortDescription: 'B2B enterprise marketing intelligence SaaS with real-time multi-touch attribution dashboards.',
+      image: '/illustrations/saas-platform.jpg',
+      metric: '99.99% Uptime SLA',
+      tech: ['Next.js 16', 'PostgreSQL', 'Redis', 'Docker'],
     },
     {
       title: 'Habibs Brand Growth',
@@ -49,15 +57,19 @@ export const PortfolioGridBlock: React.FC<{ block: any; projects?: any[] }> = ({
       clientName: 'Habibs Hair & Beauty',
       category: 'Digital Marketing',
       shortDescription: 'Pan-India omni-channel performance marketing campaign generating 12,000+ monthly bookings.',
-      tech: ['Google Ads', 'Meta Pixel', 'SEO', 'Conversion Funnels'],
+      image: '/illustrations/growth-marketing.jpg',
+      metric: '+320% ROAS',
+      tech: ['Google Ads', 'Meta Pixel', 'SEO', 'CRO Funnels'],
     },
     {
-      title: 'GreyOrange Cloud Dashboard',
+      title: 'GreyOrange Robotics UI',
       slug: 'greyorange-cloud-dashboard',
       clientName: 'GreyOrange Robotics',
       category: 'Web Development',
-      shortDescription: 'Mission-critical warehouse automation dashboard with sub-second WebSocket telemetry.',
-      tech: ['TypeScript', 'GraphQL', 'Tailwind', 'Docker'],
+      shortDescription: 'Mission-critical warehouse automation UI system with sub-second WebSocket telemetry.',
+      image: '/illustrations/uiux-design-service.jpg',
+      metric: '21ms Latency',
+      tech: ['TypeScript', 'Design Systems', 'Tailwind', 'WebSockets'],
     },
   ]
 
@@ -69,29 +81,30 @@ export const PortfolioGridBlock: React.FC<{ block: any; projects?: any[] }> = ({
   })
 
   return (
-    <section className="py-24 bg-navy-900 relative">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-primary/10 border border-brand-violet/30 text-brand-violet text-xs font-bold uppercase tracking-wider mb-3">
-            <span>{block?.eyebrow || 'FEATURED WORK'}</span>
+    <section className="py-28 bg-[#FAFAFD] relative overflow-hidden border-t border-slate-200/80">
+      <div className="w-full px-4 sm:px-8 lg:px-12 relative z-10">
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-bold uppercase tracking-wider shadow-xs">
+            <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
+            <span>SELECTED CLIENT WORKS & IMPACT</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
-            {block?.heading || 'Crafted for Performance & Growth'}
+          <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight">
+            Proven Engineering & Growth Results
           </h2>
-          <p className="mt-4 text-slate-300 text-base sm:text-lg">
+          <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
             Explore how we build mission-critical web applications and scale brands across industries.
           </p>
 
-          {/* Category Filter Pills */}
-          <div className="mt-8 flex flex-wrap justify-center gap-2">
-            {categories.map((cat) => (
+          {/* Category Filter Chips */}
+          <div className="flex flex-wrap items-center justify-center gap-2 pt-4">
+            {categories.map((cat, idx) => (
               <button
-                key={cat}
+                key={idx}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
                   selectedCategory === cat
-                    ? 'bg-gradient-to-r from-brand-primary to-brand-violet text-white shadow-glow-sm'
-                    : 'bg-surface-dark border border-surface-border text-slate-400 hover:text-white'
+                    ? 'bg-indigo-600 text-white shadow-md shadow-indigo-500/20'
+                    : 'bg-white text-slate-700 border border-slate-200 hover:border-indigo-300 hover:bg-slate-50'
                 }`}
               >
                 {cat}
@@ -102,55 +115,85 @@ export const PortfolioGridBlock: React.FC<{ block: any; projects?: any[] }> = ({
 
         {/* Portfolio Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, idx) => (
-            <motion.div
-              key={project.slug || idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.08 }}
-              className="glass-card rounded-2xl p-6 flex flex-col justify-between group"
-            >
-              <div>
-                {/* Mock Card Preview Image Header */}
-                <div className="w-full h-48 rounded-xl bg-gradient-to-tr from-navy-950 via-navy-800 to-brand-primary/20 border border-surface-border p-4 flex flex-col justify-between mb-5 relative overflow-hidden group-hover:border-brand-violet/40 transition-colors">
-                  <div className="flex items-center justify-between">
-                    <span className="px-2.5 py-1 rounded-md bg-navy-950/80 border border-white/10 text-[11px] font-bold text-brand-violet">
-                      {project.category}
-                    </span>
-                    <span className="text-xs font-mono text-slate-400">{project.clientName}</span>
-                  </div>
-                  <div className="text-xl font-extrabold text-white tracking-tight drop-shadow-md">
-                    {project.title}
-                  </div>
-                </div>
+          {filteredProjects.map((project, idx) => {
+            const projectImg =
+              project.image ||
+              (project.category === 'Mobile App'
+                ? '/illustrations/mobile-app.jpg'
+                : project.category === 'E-commerce'
+                ? '/illustrations/ecommerce-service.jpg'
+                : project.category === 'Digital Marketing'
+                ? '/illustrations/growth-marketing.jpg'
+                : '/illustrations/saas-platform.jpg')
 
-                <p className="text-slate-300 text-sm leading-relaxed mb-4">
-                  {project.shortDescription}
-                </p>
-
-                {/* Tech Badges */}
-                <div className="flex flex-wrap gap-1.5 mb-6">
-                  {(project.tech || ['Next.js', 'Tailwind', 'PostgreSQL']).map((t: string, tidx: number) => (
-                    <span
-                      key={tidx}
-                      className="px-2.5 py-0.5 rounded-md bg-white/5 border border-surface-border text-[11px] font-medium text-slate-400"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <Link
-                href={`/portfolio/${project.slug}`}
-                className="inline-flex items-center space-x-2 text-sm font-bold text-brand-violet hover:text-white transition-colors group/link"
+            return (
+              <motion.div
+                key={project.slug || idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.06 }}
+                className="group"
               >
-                <span>View Full Case & Tech Architecture</span>
-                <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-              </Link>
-            </motion.div>
-          ))}
+                <Link
+                  href={`/portfolio/${project.slug}`}
+                  className="block h-full bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm hover:shadow-2xl hover:shadow-indigo-500/10 hover:border-indigo-300 transition-all duration-300 flex flex-col justify-between overflow-hidden"
+                >
+                  <div className="space-y-4">
+                    {/* Visual Card Image */}
+                    <div className="relative rounded-2xl overflow-hidden border border-slate-100 bg-slate-50 h-52 w-full">
+                      <img
+                        src={projectImg}
+                        alt={project.title}
+                        className="w-full h-full object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent pointer-events-none" />
+
+                      <div className="absolute top-3 left-3">
+                        <span className="text-xs font-bold text-indigo-700 uppercase tracking-wider px-3 py-1 rounded-full bg-white/95 border border-slate-200 shadow-xs backdrop-blur-md">
+                          {project.category}
+                        </span>
+                      </div>
+
+                      {project.metric && (
+                        <div className="absolute bottom-3 right-3">
+                          <span className="text-xs font-bold text-emerald-400 px-3 py-1 rounded-lg bg-slate-900/85 backdrop-blur-md border border-white/20">
+                            {project.metric}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="text-xs text-slate-500 font-semibold">{project.clientName}</div>
+
+                    <h3 className="text-xl font-extrabold text-slate-900 group-hover:text-indigo-600 transition-colors">
+                      {project.title}
+                    </h3>
+
+                    <p className="text-slate-600 text-sm leading-relaxed line-clamp-2">
+                      {project.shortDescription}
+                    </p>
+
+                    <div className="flex flex-wrap gap-1.5 pt-2">
+                      {project.tech?.map((t: string, tIdx: number) => (
+                        <span
+                          key={tIdx}
+                          className="px-2.5 py-1 rounded-lg bg-slate-50 border border-slate-200 text-[11px] font-semibold text-slate-700"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="pt-5 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-indigo-600 group-hover:text-indigo-700">
+                    <span>View Architecture & Deliverables</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </Link>
+              </motion.div>
+            )
+          })}
         </div>
       </div>
     </section>

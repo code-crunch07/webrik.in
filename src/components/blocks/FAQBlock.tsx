@@ -7,77 +7,67 @@ import { ChevronDown, HelpCircle } from 'lucide-react'
 export const FAQBlock: React.FC<{ block: any; faqs?: any[] }> = ({ block, faqs }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
-  const defaultFaqs = [
+  const defaultFAQs = [
     {
-      question: 'What services does Webrik specialize in?',
-      answer: 'Webrik provides end-to-end software development (Web Apps, Next.js, Mobile Apps, SaaS platforms, Custom APIs) and full-funnel digital marketing (SEO, Google Ads, Meta Ads, Performance Growth, Lead Generation).',
+      question: 'What is Webrik’s core expertise?',
+      answer: 'We specialize in full-stack software development (React, Next.js, Node.js, Payload CMS, Native iOS/Android) and result-driven digital marketing (SEO, Google Ads PPC, Meta Pixel conversion funnels).',
     },
     {
-      question: 'How long does a custom web or mobile project take?',
-      answer: 'Typical website development timelines range from 3 to 6 weeks. Complex enterprise SaaS platforms or custom mobile applications generally take 8 to 12 weeks depending on technical specifications.',
+      question: 'How long does a typical software project take?',
+      answer: 'A standard custom web application or mobile app takes 4 to 8 weeks from initial discovery sprint to production launch. We work in agile 2-week sprint cycles with transparent code releases.',
     },
     {
-      question: 'Can non-technical team members update content via Payload CMS?',
-      answer: 'Yes! Payload CMS provides a simple, secure admin panel where your marketing team can easily update page layouts, text, media, blog posts, services, case studies, and SEO metadata without editing code.',
+      question: 'Do we get full ownership of the source code?',
+      answer: 'Yes, 100%. Upon completion, all IP rights, GitHub repositories, database credentials, and cloud deployment pipelines are fully transferred to your company.',
     },
     {
-      question: 'How do you approach performance marketing and ad spend ROI?',
-      answer: 'We focus on bottom-line business metrics: Cost Per Lead (CPL), Customer Acquisition Cost (CAC), Return on Ad Spend (ROAS), and Lifetime Value (LTV). We build conversion-optimized landing pages paired with targeted ad funnels.',
-    },
-    {
-      question: 'What is your technology stack for custom software?',
-      answer: 'We build on Next.js 16, React 19, TypeScript, Tailwind CSS, Payload CMS 3, PostgreSQL, AWS cloud infrastructure, and Docker containerization.',
+      question: 'How does Payload CMS integration help our marketing team?',
+      answer: 'Payload CMS gives your non-technical marketing team an easy, intuitive admin panel to publish blogs, update landing pages, and manage services without relying on developers or writing code.',
     },
   ]
 
-  const displayFaqs = faqs && faqs.length > 0 ? faqs : defaultFaqs
+  const displayFAQs = faqs && faqs.length > 0 ? faqs : defaultFAQs
 
   return (
-    <section className="py-24 bg-navy-900 relative">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-primary/10 border border-brand-violet/30 text-brand-violet text-xs font-bold uppercase tracking-wider mb-3">
-            <span>{block?.eyebrow || 'GOT QUESTIONS?'}</span>
+    <section className="py-24 bg-slate-50 relative border-t border-slate-200/80">
+      <div className="w-full px-4 sm:px-8 lg:px-12 max-w-4xl mx-auto">
+        <div className="text-center space-y-3 mb-14">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-bold uppercase tracking-wider shadow-xs">
+            <HelpCircle className="w-3.5 h-3.5 text-indigo-600" />
+            <span>FREQUENTLY ASKED QUESTIONS</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
-            {block?.heading || 'Frequently Asked Questions'}
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+            Got Questions? We Have Answers.
           </h2>
         </div>
 
         <div className="space-y-4">
-          {displayFaqs.map((faq, idx) => {
+          {displayFAQs.map((faq, idx) => {
             const isOpen = openIndex === idx
             return (
               <div
                 key={idx}
-                className="glass-card rounded-2xl overflow-hidden border border-surface-border transition-all"
+                className="bg-white rounded-2xl border border-slate-200/90 shadow-xs overflow-hidden transition-all"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
                   className="w-full p-6 text-left flex items-center justify-between space-x-4 focus:outline-none"
                 >
-                  <span className="text-lg font-bold text-white flex items-center space-x-3">
-                    <HelpCircle className="w-5 h-5 text-brand-violet shrink-0" />
-                    <span>{faq.question}</span>
+                  <span className="font-bold text-slate-900 text-base sm:text-lg">
+                    {faq.question}
                   </span>
-                  <ChevronDown
-                    className={`w-5 h-5 text-slate-400 transition-transform duration-300 ${
-                      isOpen ? 'rotate-180 text-brand-violet' : ''
-                    }`}
-                  />
+                  <ChevronDown className={`w-5 h-5 text-indigo-600 shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
                 </button>
-
                 <AnimatePresence>
                   {isOpen && (
                     <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4"
                     >
-                      <div className="px-6 pb-6 pt-2 text-slate-300 text-sm leading-relaxed border-t border-surface-border/40">
-                        {faq.answer}
-                      </div>
+                      {faq.answer}
                     </motion.div>
                   )}
                 </AnimatePresence>
